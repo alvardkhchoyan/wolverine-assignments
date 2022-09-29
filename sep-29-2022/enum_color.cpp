@@ -5,13 +5,8 @@ enum class Colors {Red, Green, Blue, Black};
 std::map<Colors, std::string> color_num;
 std::map<std::string, Colors> color_name;
 
-Colors toEnum(std::string str) {
-    return color_name[str];
-}
-
-std::string toString(Colors num) {
-    return color_num[num];
-}
+Colors toEnum(const std::string&);
+std::string toString(Colors);
 
 int main() {
     color_num[Colors::Red] = "Red";
@@ -26,4 +21,10 @@ int main() {
     std::cout << toString(Colors::Red) << std::endl;
     std::cout << static_cast<int>(toEnum("Red")) << std::endl;
 }
+Colors toEnum(const std::string& str) {
+    return color_name[str];
+}
 
+std::string toString(Colors num) {
+    return color_num[num];
+}
